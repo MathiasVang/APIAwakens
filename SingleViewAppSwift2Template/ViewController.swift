@@ -19,5 +19,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func hrthr(sender: UIButton) {
+        performSegueWithIdentifier("hek", sender: sender)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "hek" {
+            
+            
+        }
+    }
+    
+    
 }
 
