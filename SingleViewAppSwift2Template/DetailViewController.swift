@@ -11,7 +11,13 @@ import UIKit
 class DetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var objectPicker: UIPickerView!
+    
     @IBOutlet weak var objectName: UILabel!
+    
+    @IBOutlet weak var smallestLabel: UILabel!
+    @IBOutlet weak var smallestValueLabel: UILabel!
+    @IBOutlet weak var largestLabel: UILabel!
+    @IBOutlet weak var largetsValueLabel: UILabel!
     
     let pickerData = ["Mozzarella","Gorgonzola","Provolone","Brie","Maytag Blue","Sharp Cheddar","Monterrey Jack","Stilton","Gouda","Goat Cheese", "Asiago"]
     
@@ -20,11 +26,32 @@ class DetailViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         // Do any additional setup after loading the view, typically from a nib.
         objectPicker.dataSource = self
         objectPicker.delegate = self
+        
+        navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Table View
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ObjectCell", forIndexPath: indexPath)
+        
+        
+        
+        return cell
     }
     
     // MARK: Delegates and data sources
