@@ -55,7 +55,7 @@
                                                 <accessibility key="accessibilityConfiguration" identifier="vehicles"/>
                                                 <state key="normal" image="icon-vehicles"/>
                                                 <connections>
-                                                    <action selector="vehiclesButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L1W-2F-8Vg"/>
+                                                    <action selector="vehiclesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7K1-pj-2nj"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-tQ-FFH">
@@ -71,7 +71,7 @@
                                                 <accessibility key="accessibilityConfiguration" identifier="starships"/>
                                                 <state key="normal" image="icon-starships"/>
                                                 <connections>
-                                                    <action selector="starshipsButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LnX-SZ-0L3"/>
+                                                    <action selector="starshipsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fTJ-xI-yIb"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Starships" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofd-Nu-Dth">

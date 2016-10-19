@@ -25,17 +25,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func charactersButton(sender: UIButton) {
+        performSegueWithIdentifier("showDetail", sender: sender)
+    }
     
     @IBAction func vehiclesButton(sender: UIButton) {
         performSegueWithIdentifier("showDetail", sender: sender)
     }
     
     @IBAction func starshipsButton(sender: UIButton) {
-        performSegueWithIdentifier("showDetail", sender: sender)
-    }
-    
-    @IBAction func charactersButton(sender: UIButton) {
         performSegueWithIdentifier("showDetail", sender: sender)
     }
     
@@ -48,11 +46,13 @@ class ViewController: UIViewController {
                 if Reachability.isConnectedToNetwork() == true {
                     let controller = segue.destinationViewController as! DetailViewController
                 
-                        if sender as! UIButton == charactersButton {
+                        if sender as? UIButton == charactersButton {
+                            print("Jeg er den bedste")
                             controller
-                        } else if sender as! UIButton == vehiclesButton {
+                        } else if sender as? UIButton == vehiclesButton {
+                            print("Fuck af")
                             controller
-                        } else if sender as! UIButton == starshipsButton {
+                        } else if sender as? UIButton == starshipsButton {
                             controller
                         }
                     
@@ -63,6 +63,8 @@ class ViewController: UIViewController {
                 let alertController = UIAlertController(title: "No Internet Connection", message: "Please make sure you are connected to the internet", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(action)
+                
+                
             } catch let error {
                 fatalError("\(error)")
             }
