@@ -8,28 +8,56 @@
 
 import Foundation
 
+typealias Result = [[String : AnyObject]]
+
 protocol ObjectType {}
 
-protocol Character {
-    var yearOfBirth: String { get }
-    var home: String { get }
-    var height: String { get }
-    var eyes: String { get }
-    var hair: String { get }
+protocol DataProtocol {
+    var type: ObjectType { get }
+    var name: String { get }
+    init?(resultDecoder result: JSON)
 }
 
-protocol Vehicles {
-    var make: String { get }
-    var cost: String { get }
-    var length: String { get }
-    var type: String { get }
-    var crew: String { get }
+protocol JSONDecodable {
+    init?(JSON: [String : AnyObject])
 }
 
-protocol Starships {
-    var make: String { get }
-    var cost: String { get }
-    var length: String { get }
-    var type: String { get }
-    var crew: String { get }
+
+
+final class StarWarsHold: JSONDecodable {
+    var count: Int?
+    var next: String?
+    var previous: String?
+    var result: Result?
+    var people: [StarWarsCharacter] = []
+    var vehicles: [StarWarsVehicle] = []
+    var starships: [StarWarsStarship] = []
+    
+    init?(JSON: [String : AnyObject]) {
+        
+        if let count = JSON["count"] as? Int {
+            self.count = count
+        } else {
+            self.count = nil
+        }
+        
+        if let next = JSON["next"] as? String {
+            self.next = next
+        } else {
+            self.next = nil
+        }
+        
+        if let previous = JSON["previous"] as? String {
+            self.previous = previous
+        } else {
+            self.previous = nil
+        }
+        
+        guard let result = JSON["results"] as? Result else {
+            print("Failed")
+            return nil
+        }
+        
+        self.result = result
+    }
 }

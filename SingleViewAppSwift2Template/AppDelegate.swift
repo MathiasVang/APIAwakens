@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SingleViewAppSwift2Template
+//  TheAPIAwakens
 //
-//  Created by Treehouse on 9/19/16.
+//  Created by Mathias Vang Rasmussen on 9/19/16.
 //  Copyright © 2016 Treehouse. All rights reserved.
 //
 

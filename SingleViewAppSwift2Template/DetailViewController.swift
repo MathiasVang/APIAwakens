@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  SingleViewAppSwift2Template
+//  TheAPIAwakens
 //
 //  Created by Mathias Vang Rasmussen on 17/10/2016.
 //  Copyright © 2016 Treehouse. All rights reserved.

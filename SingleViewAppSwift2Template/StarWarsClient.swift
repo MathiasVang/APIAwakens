@@ -1,6 +1,6 @@
 //
 //  StarWarsClient.swift
-//  SingleViewAppSwift2Template
+//  TheAPIAwakens
 //
 //  Created by Mathias Vang Rasmussen on 17/10/2016.
 //  Copyright © 2016 Treehouse. All rights reserved.
@@ -12,8 +12,10 @@ struct ObjectID {
     let name: [[String : AnyObject]]
 }
 
-enum StarWars: Endpoint {
-    case Current(token: String, id: ObjectID)
+enum StarWars: Int, Endpoint {
+    case People
+    case Vehicles
+    case Starships
     
     var baseURL: NSURL {
         return NSURL(string: "http://swapi.co/api/")!
@@ -21,8 +23,12 @@ enum StarWars: Endpoint {
     
     var path: String {
         switch self {
-        case .Current(let token, let id):
-            return "/\(token)/\(id)"
+        case .People:
+            return "people/"
+        case .Vehicles:
+            return "vehicles/"
+        case .Starships:
+            return "starships/"
         }
     }
     
@@ -39,17 +45,79 @@ final class StarwarsAPIClient: APIClient {
         return NSURLSession(configuration: self.configuration)
     }()
     
-    private let token: String
-    
-    init(config: NSURLSessionConfiguration, APIKey: String) {
+    init(config: NSURLSessionConfiguration) {
         self.configuration = config
-        self.token = APIKey
     }
     
     convenience init(APIKey: String) {
-        self.init(config: NSURLSessionConfiguration.defaultSessionConfiguration(), APIKey: APIKey)
+        self.init(config: NSURLSessionConfiguration.defaultSessionConfiguration())
     }
     
-    func fetch<T>(request: NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void) {
+    func fetchDataFor(type: StarWars, customURL: NSURLRequest?, completion: APIResult<StarWarsHold> -> Void) {
+        
+        var request = NSURLRequest()
+        if customURL == nil {
+            switch type {
+            case .People:
+                request = StarWars.People.request
+            case .Vehicles:
+                request = StarWars.Vehicles.request
+            case .Starships:
+                request = StarWars.Starships.request
+            }
+        } else if customURL != nil {
+            request = customURL!
+        }
+        
+        fetch(request, parse: { json -> StarWarsHold? in
+            
+            guard let holder = StarWarsHold(JSON: json) else {
+                print("Fail conversion")
+                return nil
+            }
+            
+            if let result = holder.result {
+                for i in 0 ..< result.count {
+                    switch type {
+                        
+                    case .People:
+                        if let character = StarWarsCharacter(resultDecoder: result[i]) {
+                            holder.people.append(character)
+                        }
+                    case .Vehicles:
+                        if let vehicle = StarWarsVehicle(resultDecoder: result[i]) {
+                            holder.vehicles.append(vehicle)
+                        }
+                    case .Starships:
+                        if let starship = StarWarsStarship(resultDecoder: result[i]) {
+                            holder.starships.append(starship)
+                        }
+                    }
+                }
+            }
+            
+            return holder
+            
+        }, completion: completion)
+    }
+    
+    func fetchSingleData(customURL: NSURLRequest, forType: StarWars, completion: APIResult<AnyObject> -> Void) {
+        
+        fetch(customURL, parse: { json -> AnyObject? in
+            
+            let holder: AnyObject?
+            
+            switch forType {
+            case .People:
+                holder = StarWarsCharacter(resultDecoder: json)
+            case .Vehicles:
+                holder = StarWarsVehicle(resultDecoder: json)
+            case .Starships:
+                holder = StarWarsStarship(resultDecoder: json)
+            }
+            
+            return holder
+            
+            }, completion: completion)
     }
 }

@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  SingleViewAppSwift2Template
+//  TheAPIAwakens
 //
-//  Created by Treehouse on 9/19/16.
+//  Created by Mathias Vang Rasmussen on 9/19/16.
 //  Copyright © 2016 Treehouse. All rights reserved.
 //
 
@@ -14,6 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var charactersButton: UIButton!
     @IBOutlet weak var vehiclesButton: UIButton!
     @IBOutlet weak var starshipsButton: UIButton!
+    
+    lazy var swapiClient = StarwarsAPIClient.self
+    var holderData: StarWarsHold?
+    var characterDataCount = 0
+    var vehicleDataCount = 0
+    var starshipDataCount = 0
+    var downloadedCharacterData = [StarWarsCharacter]()
+    var downloadedVehicleData = [StarWarsVehicle]()
+    var downloadedStarshipData = [StarWarsStarship]()
+    var characterClicked = false
+    var vehicleClicked = false
+    var starshipClicked = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +49,6 @@ class ViewController: UIViewController {
         performSegueWithIdentifier("showDetail", sender: sender)
     }
     
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             
@@ -47,8 +58,8 @@ class ViewController: UIViewController {
                     let controller = segue.destinationViewController as! DetailViewController
                 
                         if sender as? UIButton == charactersButton {
-                            print("Jeg er den bedste")
-                            controller
+                            characterClicked = true
+                            StarwarsAPIClient.fetchData(self)
                         } else if sender as? UIButton == vehiclesButton {
                             print("Fuck af")
                             controller
@@ -64,9 +75,34 @@ class ViewController: UIViewController {
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(action)
                 
-                
+                self.presentViewController(alertController, animated: true, completion: nil)
             } catch let error {
                 fatalError("\(error)")
+            }
+        }
+    }
+    
+    func fetchData(data: StarwarsAPIClient, customURL: NSURLRequest?) {
+        
+        charactersButton.enabled = false
+        vehiclesButton.enabled = false
+        starshipsButton.enabled = false
+        
+        swapiClient.fetchDataFor(data, customURL: customURL) { [weak self] Result in
+            
+            if let strongSelf = self {
+                
+                switch result {
+                case .Success(let successData):
+                    strongSelf.currentPage += 1
+                    switch data {
+                        case .StarWarsCharacter:
+                        strongSelf.holderData = successData
+                        strongSelf.downloadedPersonData += successData.people
+                        print("Person Count: \(strongSelf.downloadedPersonData.count)")
+                        strongSelf.personDataCount = strongSelf.holderData!.count!
+                    }
+                }
             }
         }
     }

@@ -11,8 +11,6 @@
 		1F65612A1DB4CD1500DC8F44 /* StarWarsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6561291DB4CD1500DC8F44 /* StarWarsClient.swift */; };
 		1F65612C1DB5333100DC8F44 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65612B1DB5333100DC8F44 /* DetailViewController.swift */; };
 		1F9EDA7F1DB76B0000C0730A /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA7E1DB76B0000C0730A /* DataTypes.swift */; };
-		1F9EDA811DB7961B00C0730A /* CurrentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA801DB7961B00C0730A /* CurrentObject.swift */; };
-		1F9EDA851DB7BC0700C0730A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA841DB7BC0700C0730A /* Protocols.swift */; };
 		1F9EDA881DB7BC3700C0730A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA871DB7BC3700C0730A /* Character.swift */; };
 		1F9EDA8A1DB7BCDB00C0730A /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA891DB7BCDB00C0730A /* Vehicle.swift */; };
 		1F9EDA8C1DB7BD3F00C0730A /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA8B1DB7BD3F00C0730A /* Starship.swift */; };
@@ -47,22 +45,20 @@
 		1F6561291DB4CD1500DC8F44 /* StarWarsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsClient.swift; sourceTree = "<group>"; };
 		1F65612B1DB5333100DC8F44 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1F9EDA7E1DB76B0000C0730A /* DataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
-		1F9EDA801DB7961B00C0730A /* CurrentObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentObject.swift; sourceTree = "<group>"; };
-		1F9EDA841DB7BC0700C0730A /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1F9EDA871DB7BC3700C0730A /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		1F9EDA891DB7BCDB00C0730A /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		1F9EDA8B1DB7BD3F00C0730A /* Starship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 		1F9EDA8D1DB7C1AD00C0730A /* ErrorTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		1F9EDA8F1DB7C59900C0730A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		8DC3C5AC1D901AB50012AFF7 /* SingleViewAppSwift2Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingleViewAppSwift2Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC3C5AC1D901AB50012AFF7 /* TheAPIAwakens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheAPIAwakens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC3C5AF1D901AB50012AFF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DC3C5B11D901AB50012AFF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8DC3C5B41D901AB50012AFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DC3C5B61D901AB50012AFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DC3C5B91D901AB50012AFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DC3C5BB1D901AB50012AFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC3C5C01D901AB60012AFF7 /* SingleViewAppSwift2TemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingleViewAppSwift2TemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DC3C5CB1D901AB60012AFF7 /* SingleViewAppSwift2TemplateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingleViewAppSwift2TemplateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC3C5C01D901AB60012AFF7 /* TheAPIAwakensTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheAPIAwakensTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC3C5CB1D901AB60012AFF7 /* TheAPIAwakensUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheAPIAwakensUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,18 +86,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F9EDA831DB7964400C0730A /* ObjectModel */ = {
+		1F4116B41DB8F906003AB650 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1F9EDA801DB7961B00C0730A /* CurrentObject.swift */,
+				1F6561251DB4C9A100DC8F44 /* APIClient.swift */,
+				1F6561291DB4CD1500DC8F44 /* StarWarsClient.swift */,
 			);
-			name = ObjectModel;
+			name = Network;
 			sourceTree = "<group>";
 		};
 		1F9EDA861DB7BC1900C0730A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				1F9EDA841DB7BC0700C0730A /* Protocols.swift */,
 				1F9EDA7E1DB76B0000C0730A /* DataTypes.swift */,
 				1F9EDA871DB7BC3700C0730A /* Character.swift */,
 				1F9EDA891DB7BCDB00C0730A /* Vehicle.swift */,
@@ -115,7 +111,7 @@
 		8DC3C5A31D901AB50012AFF7 = {
 			isa = PBXGroup;
 			children = (
-				8DC3C5AE1D901AB50012AFF7 /* SingleViewAppSwift2Template */,
+				8DC3C5AE1D901AB50012AFF7 /* TheAPIAwakens */,
 				8DC3C5AD1D901AB50012AFF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,37 +119,36 @@
 		8DC3C5AD1D901AB50012AFF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC3C5AC1D901AB50012AFF7 /* SingleViewAppSwift2Template.app */,
-				8DC3C5C01D901AB60012AFF7 /* SingleViewAppSwift2TemplateTests.xctest */,
-				8DC3C5CB1D901AB60012AFF7 /* SingleViewAppSwift2TemplateUITests.xctest */,
+				8DC3C5AC1D901AB50012AFF7 /* TheAPIAwakens.app */,
+				8DC3C5C01D901AB60012AFF7 /* TheAPIAwakensTests.xctest */,
+				8DC3C5CB1D901AB60012AFF7 /* TheAPIAwakensUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8DC3C5AE1D901AB50012AFF7 /* SingleViewAppSwift2Template */ = {
+		8DC3C5AE1D901AB50012AFF7 /* TheAPIAwakens */ = {
 			isa = PBXGroup;
 			children = (
 				8DC3C5AF1D901AB50012AFF7 /* AppDelegate.swift */,
 				8DC3C5B11D901AB50012AFF7 /* ViewController.swift */,
 				1F65612B1DB5333100DC8F44 /* DetailViewController.swift */,
-				1F6561251DB4C9A100DC8F44 /* APIClient.swift */,
-				1F6561291DB4CD1500DC8F44 /* StarWarsClient.swift */,
 				8DC3C5B31D901AB50012AFF7 /* Main.storyboard */,
 				8DC3C5B61D901AB50012AFF7 /* Assets.xcassets */,
 				8DC3C5B81D901AB50012AFF7 /* LaunchScreen.storyboard */,
 				8DC3C5BB1D901AB50012AFF7 /* Info.plist */,
-				1F9EDA831DB7964400C0730A /* ObjectModel */,
+				1F4116B41DB8F906003AB650 /* Network */,
 				1F9EDA861DB7BC1900C0730A /* DataModel */,
 			);
+			name = TheAPIAwakens;
 			path = SingleViewAppSwift2Template;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8DC3C5AB1D901AB50012AFF7 /* SingleViewAppSwift2Template */ = {
+		8DC3C5AB1D901AB50012AFF7 /* TheAPIAwakens */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8DC3C5D41D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "SingleViewAppSwift2Template" */;
+			buildConfigurationList = 8DC3C5D41D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "TheAPIAwakens" */;
 			buildPhases = (
 				8DC3C5A81D901AB50012AFF7 /* Sources */,
 				8DC3C5A91D901AB50012AFF7 /* Frameworks */,
@@ -163,14 +158,14 @@
 			);
 			dependencies = (
 			);
-			name = SingleViewAppSwift2Template;
+			name = TheAPIAwakens;
 			productName = SingleViewAppSwift2Template;
-			productReference = 8DC3C5AC1D901AB50012AFF7 /* SingleViewAppSwift2Template.app */;
+			productReference = 8DC3C5AC1D901AB50012AFF7 /* TheAPIAwakens.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8DC3C5BF1D901AB60012AFF7 /* SingleViewAppSwift2TemplateTests */ = {
+		8DC3C5BF1D901AB60012AFF7 /* TheAPIAwakensTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8DC3C5D71D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "SingleViewAppSwift2TemplateTests" */;
+			buildConfigurationList = 8DC3C5D71D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "TheAPIAwakensTests" */;
 			buildPhases = (
 				8DC3C5BC1D901AB60012AFF7 /* Sources */,
 				8DC3C5BD1D901AB60012AFF7 /* Frameworks */,
@@ -181,14 +176,14 @@
 			dependencies = (
 				8DC3C5C21D901AB60012AFF7 /* PBXTargetDependency */,
 			);
-			name = SingleViewAppSwift2TemplateTests;
+			name = TheAPIAwakensTests;
 			productName = SingleViewAppSwift2TemplateTests;
-			productReference = 8DC3C5C01D901AB60012AFF7 /* SingleViewAppSwift2TemplateTests.xctest */;
+			productReference = 8DC3C5C01D901AB60012AFF7 /* TheAPIAwakensTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8DC3C5CA1D901AB60012AFF7 /* SingleViewAppSwift2TemplateUITests */ = {
+		8DC3C5CA1D901AB60012AFF7 /* TheAPIAwakensUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8DC3C5DA1D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "SingleViewAppSwift2TemplateUITests" */;
+			buildConfigurationList = 8DC3C5DA1D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "TheAPIAwakensUITests" */;
 			buildPhases = (
 				8DC3C5C71D901AB60012AFF7 /* Sources */,
 				8DC3C5C81D901AB60012AFF7 /* Frameworks */,
@@ -199,9 +194,9 @@
 			dependencies = (
 				8DC3C5CD1D901AB60012AFF7 /* PBXTargetDependency */,
 			);
-			name = SingleViewAppSwift2TemplateUITests;
+			name = TheAPIAwakensUITests;
 			productName = SingleViewAppSwift2TemplateUITests;
-			productReference = 8DC3C5CB1D901AB60012AFF7 /* SingleViewAppSwift2TemplateUITests.xctest */;
+			productReference = 8DC3C5CB1D901AB60012AFF7 /* TheAPIAwakensUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8DC3C5A71D901AB50012AFF7 /* Build configuration list for PBXProject "SingleViewAppSwift2Template" */;
+			buildConfigurationList = 8DC3C5A71D901AB50012AFF7 /* Build configuration list for PBXProject "TheAPIAwakens" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,9 +237,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DC3C5AB1D901AB50012AFF7 /* SingleViewAppSwift2Template */,
-				8DC3C5BF1D901AB60012AFF7 /* SingleViewAppSwift2TemplateTests */,
-				8DC3C5CA1D901AB60012AFF7 /* SingleViewAppSwift2TemplateUITests */,
+				8DC3C5AB1D901AB50012AFF7 /* TheAPIAwakens */,
+				8DC3C5BF1D901AB60012AFF7 /* TheAPIAwakensTests */,
+				8DC3C5CA1D901AB60012AFF7 /* TheAPIAwakensUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,12 +282,10 @@
 				1F65612A1DB4CD1500DC8F44 /* StarWarsClient.swift in Sources */,
 				1F65612C1DB5333100DC8F44 /* DetailViewController.swift in Sources */,
 				1F9EDA7F1DB76B0000C0730A /* DataTypes.swift in Sources */,
-				1F9EDA811DB7961B00C0730A /* CurrentObject.swift in Sources */,
 				8DC3C5B01D901AB50012AFF7 /* AppDelegate.swift in Sources */,
 				1F6561261DB4C9A100DC8F44 /* APIClient.swift in Sources */,
 				1F9EDA8A1DB7BCDB00C0730A /* Vehicle.swift in Sources */,
 				1F9EDA8E1DB7C1AD00C0730A /* ErrorTypes.swift in Sources */,
-				1F9EDA851DB7BC0700C0730A /* Protocols.swift in Sources */,
 				1F9EDA901DB7C59900C0730A /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,12 +309,12 @@
 /* Begin PBXTargetDependency section */
 		8DC3C5C21D901AB60012AFF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC3C5AB1D901AB50012AFF7 /* SingleViewAppSwift2Template */;
+			target = 8DC3C5AB1D901AB50012AFF7 /* TheAPIAwakens */;
 			targetProxy = 8DC3C5C11D901AB60012AFF7 /* PBXContainerItemProxy */;
 		};
 		8DC3C5CD1D901AB60012AFF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC3C5AB1D901AB50012AFF7 /* SingleViewAppSwift2Template */;
+			target = 8DC3C5AB1D901AB50012AFF7 /* TheAPIAwakens */;
 			targetProxy = 8DC3C5CC1D901AB60012AFF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -441,7 +434,7 @@
 				DEVELOPMENT_TEAM = UNAZBL2AFD;
 				INFOPLIST_FILE = SingleViewAppSwift2Template/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.SingleViewAppSwift2Template;
+				PRODUCT_BUNDLE_IDENTIFIER = com.recapted.APIAwakens;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 2.3;
 			};
@@ -454,7 +447,7 @@
 				DEVELOPMENT_TEAM = UNAZBL2AFD;
 				INFOPLIST_FILE = SingleViewAppSwift2Template/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.SingleViewAppSwift2Template;
+				PRODUCT_BUNDLE_IDENTIFIER = com.recapted.APIAwakens;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 2.3;
 			};
@@ -468,7 +461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.SingleViewAppSwift2TemplateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SingleViewAppSwift2Template.app/SingleViewAppSwift2Template";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheAPIAwakens.app/TheAPIAwakens";
 			};
 			name = Debug;
 		};
@@ -480,7 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.SingleViewAppSwift2TemplateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SingleViewAppSwift2Template.app/SingleViewAppSwift2Template";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheAPIAwakens.app/TheAPIAwakens";
 			};
 			name = Release;
 		};
@@ -509,7 +502,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8DC3C5A71D901AB50012AFF7 /* Build configuration list for PBXProject "SingleViewAppSwift2Template" */ = {
+		8DC3C5A71D901AB50012AFF7 /* Build configuration list for PBXProject "TheAPIAwakens" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DC3C5D21D901AB60012AFF7 /* Debug */,
@@ -518,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DC3C5D41D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "SingleViewAppSwift2Template" */ = {
+		8DC3C5D41D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "TheAPIAwakens" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DC3C5D51D901AB60012AFF7 /* Debug */,
@@ -527,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DC3C5D71D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "SingleViewAppSwift2TemplateTests" */ = {
+		8DC3C5D71D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "TheAPIAwakensTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DC3C5D81D901AB60012AFF7 /* Debug */,
@@ -536,7 +529,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DC3C5DA1D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "SingleViewAppSwift2TemplateUITests" */ = {
+		8DC3C5DA1D901AB60012AFF7 /* Build configuration list for PBXNativeTarget "TheAPIAwakensUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DC3C5DB1D901AB60012AFF7 /* Debug */,

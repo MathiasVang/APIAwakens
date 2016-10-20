@@ -1,6 +1,6 @@
 //
 //  APIClient.swift
-//  SingleViewAppSwift2Template
+//  TheAPIAwakens
 //
 //  Created by Mathias Vang Rasmussen on 17/10/2016.
 //  Copyright © 2016 Treehouse. All rights reserved.
@@ -12,17 +12,9 @@ public let RECNetworkingErrorDomain = "com.recapted.Swapi.NetworkingError"
 public let MissingHTTPResponseError: Int = 10
 public let UnexpectedResponseError: Int = 20
 
-typealias JSON = [String : AnyObject]
-typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
-typealias JSONTask = NSURLSessionDataTask
-
 enum APIResult<T> {
     case Success(T)
     case Failure(ErrorType)
-}
-
-protocol JSONDecodable {
-    init?(JSON: [String : AnyObject])
 }
 
 protocol Endpoint {

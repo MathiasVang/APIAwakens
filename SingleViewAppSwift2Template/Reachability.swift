@@ -1,6 +1,6 @@
 //
 //  Reachability.swift
-//  SingleViewAppSwift2Template
+//  TheAPIAwakens
 //
 //  Created by Mathias Vang Rasmussen on 19/10/2016.
 //  Copyright © 2016 Treehouse. All rights reserved.

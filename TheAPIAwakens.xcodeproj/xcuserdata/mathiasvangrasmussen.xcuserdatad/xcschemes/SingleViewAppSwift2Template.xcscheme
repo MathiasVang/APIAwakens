@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8DC3C5AB1D901AB50012AFF7"
-               BuildableName = "SingleViewAppSwift2Template.app"
-               BlueprintName = "SingleViewAppSwift2Template"
-               ReferencedContainer = "container:SingleViewAppSwift2Template.xcodeproj">
+               BuildableName = "TheAPIAwakens.app"
+               BlueprintName = "TheAPIAwakens"
+               ReferencedContainer = "container:TheAPIAwakens.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8DC3C5BF1D901AB60012AFF7"
-               BuildableName = "SingleViewAppSwift2TemplateTests.xctest"
-               BlueprintName = "SingleViewAppSwift2TemplateTests"
-               ReferencedContainer = "container:SingleViewAppSwift2Template.xcodeproj">
+               BuildableName = "TheAPIAwakensTests.xctest"
+               BlueprintName = "TheAPIAwakensTests"
+               ReferencedContainer = "container:TheAPIAwakens.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8DC3C5CA1D901AB60012AFF7"
-               BuildableName = "SingleViewAppSwift2TemplateUITests.xctest"
-               BlueprintName = "SingleViewAppSwift2TemplateUITests"
-               ReferencedContainer = "container:SingleViewAppSwift2Template.xcodeproj">
+               BuildableName = "TheAPIAwakensUITests.xctest"
+               BlueprintName = "TheAPIAwakensUITests"
+               ReferencedContainer = "container:TheAPIAwakens.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8DC3C5AB1D901AB50012AFF7"
-            BuildableName = "SingleViewAppSwift2Template.app"
-            BlueprintName = "SingleViewAppSwift2Template"
-            ReferencedContainer = "container:SingleViewAppSwift2Template.xcodeproj">
+            BuildableName = "TheAPIAwakens.app"
+            BlueprintName = "TheAPIAwakens"
+            ReferencedContainer = "container:TheAPIAwakens.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8DC3C5AB1D901AB50012AFF7"
-            BuildableName = "SingleViewAppSwift2Template.app"
-            BlueprintName = "SingleViewAppSwift2Template"
-            ReferencedContainer = "container:SingleViewAppSwift2Template.xcodeproj">
+            BuildableName = "TheAPIAwakens.app"
+            BlueprintName = "TheAPIAwakens"
+            ReferencedContainer = "container:TheAPIAwakens.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -100,9 +100,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8DC3C5AB1D901AB50012AFF7"
-            BuildableName = "SingleViewAppSwift2Template.app"
-            BlueprintName = "SingleViewAppSwift2Template"
-            ReferencedContainer = "container:SingleViewAppSwift2Template.xcodeproj">
+            BuildableName = "TheAPIAwakens.app"
+            BlueprintName = "TheAPIAwakens"
+            ReferencedContainer = "container:TheAPIAwakens.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
