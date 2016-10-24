@@ -13,9 +13,9 @@ struct ObjectID {
 }
 
 enum StarWars: Int, Endpoint {
-    case People
-    case Vehicles
-    case Starships
+    case People = 1
+    case Vehicles = 2
+    case Starships = 3
     
     var baseURL: NSURL {
         return NSURL(string: "http://swapi.co/api/")!
@@ -49,7 +49,7 @@ final class StarwarsAPIClient: APIClient {
         self.configuration = config
     }
     
-    convenience init(APIKey: String) {
+    convenience init() {
         self.init(config: NSURLSessionConfiguration.defaultSessionConfiguration())
     }
     

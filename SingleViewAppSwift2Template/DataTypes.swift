@@ -13,7 +13,7 @@ typealias JSON = [String : AnyObject]
 typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
 typealias JSONTask = NSURLSessionDataTask
 
-protocol ObjectType {}
+protocol ObjectType { }
 
 protocol DataProtocol {
     var type: ObjectType { get }
@@ -22,7 +22,7 @@ protocol DataProtocol {
 }
 
 protocol JSONDecodable {
-    init?(JSON: [String : AnyObject])
+    init?(JSON: JSON)
 }
 
 enum StarWarsType: ObjectType {

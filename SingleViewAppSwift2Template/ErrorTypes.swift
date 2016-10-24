@@ -10,5 +10,6 @@ import Foundation
 
 enum Errors: ErrorType {
     case missingInternetConnection
-    
+    case ZeroInput
+    case InvalidInt
 }
