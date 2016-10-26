@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct ObjectID {
-    let name: [[String : AnyObject]]
-}
-
 enum StarWars: Int, Endpoint {
     case People = 1
     case Vehicles = 2
@@ -76,7 +72,7 @@ final class StarwarsAPIClient: APIClient {
                 return nil
             }
             
-            if let result = holder.result {
+            if let result = holder.results {
                 for i in 0 ..< result.count {
                     switch type {
                         
@@ -98,7 +94,7 @@ final class StarwarsAPIClient: APIClient {
             
             return holder
             
-        }, completion: completion)
+            }, completion: completion)
     }
     
     func fetchSingleData(customURL: NSURLRequest, forType: StarWars, completion: APIResult<AnyObject> -> Void) {

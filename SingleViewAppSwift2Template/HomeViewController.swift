@@ -1,20 +1,20 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  TheAPIAwakens
 //
-//  Created by Mathias Vang Rasmussen on 9/19/16.
+//  Created by Mathias Vang Rasmussen on 26/10/2016.
 //  Copyright © 2016 Treehouse. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    
+class HomeViewController: UIViewController {
+
     @IBOutlet weak var charactersButton: UIButton!
     @IBOutlet weak var vehiclesButton: UIButton!
     @IBOutlet weak var starshipsButton: UIButton!
     
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
     lazy var swapiClient = StarwarsAPIClient()
     
     var holderData: StarWarsHold?
@@ -27,36 +27,112 @@ class ViewController: UIViewController {
     var characterClicked = false
     var vehicleClicked = false
     var starshipClicked = false
-
+    
+    var currentPage = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func charactersButton(sender: UIButton) {
-        performSegueWithIdentifier("showDetail", sender: sender)
+    @IBAction func characterTapped(sender: AnyObject) {
+        
+        if characterClicked == false {
+            holderData = nil
+        }
+        
+        if sender as! UIButton == charactersButton {
+            if holderData == nil && characterClicked == false {
+                activityIndicator.startAnimating()
+                characterClicked = true
+                fetchData(StarWars.People, customUrl: nil)
+            } else {
+                performSegueWithIdentifier("showDetail", sender: sender)
+            }
+        }
     }
     
-    @IBAction func vehiclesButton(sender: UIButton) {
-        performSegueWithIdentifier("showDetail", sender: sender)
+    @IBAction func vehicleTapped(sender: AnyObject) {
+        
+        if vehicleClicked == false {
+            holderData = nil
+        }
+        
+        if sender as! UIButton == vehiclesButton {
+            if holderData == nil && vehicleClicked == false {
+                activityIndicator.startAnimating()
+                vehicleClicked = true
+                fetchData(StarWars.Vehicles, customUrl: nil)
+            } else {
+                performSegueWithIdentifier("showDetail", sender: sender)
+            }
+        }
+    }
+
+    @IBAction func starshipTapped(sender: AnyObject) {
+        
+        if starshipClicked == false {
+            holderData = nil
+        }
+        
+        if sender as! UIButton == starshipsButton {
+            if holderData == nil && starshipsButton == false {
+                activityIndicator.startAnimating()
+                starshipClicked = true
+                fetchData(StarWars.Starships, customUrl: nil)
+            } else {
+                performSegueWithIdentifier("showDetail", sender: sender)
+            }
+        }
     }
     
-    @IBAction func starshipsButton(sender: UIButton) {
-        performSegueWithIdentifier("showDetail", sender: sender)
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             
             do {
-            
+                
                 if Reachability.isConnectedToNetwork() == true {
                     let controller = segue.destinationViewController as! DetailViewController
+                    
+//                    if characterClicked == false {
+//                        holderData = nil
+//                    } else if vehicleClicked == false {
+//                        holderData = nil
+//                    } else if starshipClicked == false {
+//                        holderData = nil
+//                    }
+//                    
+//                    if sender as! UIButton == charactersButton {
+//                        if holderData == nil && characterClicked == false {
+//                            activityIndicator.startAnimating()
+//                            characterClicked = true
+//                            fetchData(StarWars.People, customUrl: nil)
+//                        } else {
+//                            performSegueWithIdentifier("showDetail", sender: sender)
+//                        }
+//                    } else if sender as! UIButton == vehiclesButton {
+//                        if holderData == nil && vehicleClicked == false {
+//                            activityIndicator.startAnimating()
+//                            vehicleClicked = true
+//                            fetchData(StarWars.Vehicles, customUrl: nil)
+//                        } else {
+//                            performSegueWithIdentifier("showDetail", sender: sender)
+//                        }
+//                    } else if sender as! UIButton == starshipsButton {
+//                        if holderData == nil && starshipClicked == false {
+//                            activityIndicator.startAnimating()
+//                            starshipClicked = true
+//                            fetchData(StarWars.Starships, customUrl: nil)
+//                        } else {
+//                            performSegueWithIdentifier("showDetail", sender: sender)
+//                        }
+//                    }
                     
                     // Check where the segue call comes from.
                     // If the data has not been fetched, the fetch closure will call the segue and send a int value to tell what button was clicked
@@ -77,6 +153,8 @@ class ViewController: UIViewController {
                 } else {
                     throw Errors.missingInternetConnection
                 }
+                
+
             } catch Errors.missingInternetConnection {
                 let alertController = UIAlertController(title: "No Internet Connection", message: "Please make sure you are connected to the internet", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -102,6 +180,7 @@ class ViewController: UIViewController {
             
             switch result {
             case .Success(let successData):
+                strongSelf.currentPage += 1
                 switch data {
                 case .People:
                     strongSelf.holderData = successData
@@ -114,19 +193,25 @@ class ViewController: UIViewController {
                     strongSelf.downloadedVehicleData += successData.vehicles
                     print("Vehicle Count: \(strongSelf.downloadedVehicleData.count)")
                     strongSelf.vehicleDataCount = strongSelf.holderData!.count!
-
+                    
                 case .Starships:
                     strongSelf.holderData = successData
                     strongSelf.downloadedStarshipData += successData.starships
                     print("Starship Count: \(strongSelf.downloadedStarshipData.count)")
                     strongSelf.starshipDataCount = strongSelf.holderData!.count!
-                    
                 }
                 
             case .Failure(let error as NSError):
                 strongSelf.showAlert("Unable to retrieve data", message: error.localizedDescription)
             default: break
-                
+            }
+            
+            if (strongSelf.holderData?.next != nil) {
+                strongSelf.fetchData(data, customUrl: NSURLRequest(URL: NSURL(string: (strongSelf.holderData?.next)!)!))
+            } else {
+                strongSelf.currentPage = 0
+                strongSelf.activityIndicator.stopAnimating()
+                strongSelf.performSegueWithIdentifier("showDetail", sender: data.rawValue)
             }
         }
     }

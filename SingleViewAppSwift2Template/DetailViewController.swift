@@ -11,7 +11,6 @@ import UIKit
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UINavigationControllerDelegate {
     
     // Outlets
-    @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,12 +18,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var smallestLabel: UILabel!
     @IBOutlet weak var largestLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
     
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    
-    // Data
     lazy var swapiClient = StarwarsAPIClient()
     var objects: [AnyObject]?
     var unwrapObjects = [AnyObject]()
@@ -37,6 +31,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             storedCurrency = 0
         }
     }
+    
     var typeListKeys: [String] {
         get {
             return Array(descrArr[selectedTypeInPickerWheel].keys)
@@ -47,17 +42,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var storedLargeSize: Int? = nil
     var moreDataText = [String]()
     
-    func configureView() {
+    func setupView() {
         
-        // Unwrap objects
         if let obj = objects {
             unwrapObjects = obj
         }
         
-        // Set the count of objects
         countOfObjects = unwrapObjects.count
         
-        // Loop through and set it all up
         for i in 0 ..< countOfObjects {
             if let names = unwrapObjects[i] as? DataProtocol {
                 nameArr.append(names.name)
@@ -99,13 +91,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
+        setupView()
         
         // Setup delegates
         tableView.delegate = self
@@ -114,7 +105,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         pickerView.dataSource = self
         navigationController?.delegate = self
         
-        // Setup table view design
         tableView.separatorColor = UIColor(red: 106/255.0, green: 196/255.0, blue: 255/255.0, alpha: 1)
         tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10)
         tableView.backgroundColor = UIColor.clearColor()
@@ -122,8 +112,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
-        // Setup picker view design
-        pickerView.backgroundColor = UIColor.clearColor()
+        nameLabel.text = nameArr[0]
         
     }
     
@@ -143,7 +132,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = nameArr[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!,NSForegroundColorAttributeName:UIColor.yellowColor()])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
         return myTitle
     }
     
@@ -164,47 +153,42 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ObjectCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ObjectCell", forIndexPath: indexPath) as! ObjectCell
         
-        // Hide buttons until they must be used
-        button1.hidden = true
-        button2.hidden = true
-        
-        // Setup cell design
-        cell.contentView.backgroundColor = UIColor.clearColor()
-        cell.backgroundColor = UIColor.clearColor()
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.button1.hidden = true
+        cell.button2.hidden = true
         
         // Get the keys from the dictionary and list them as the category
         let rowKey = typeListKeys[indexPath.row]
-        cellLabel.text = rowKey
+        cell.descLabel.text = rowKey
         
         // Using the keys get the corrosponding value
         let rowValue = descrArr[selectedTypeInPickerWheel][rowKey] as? String
         
         // Assign buttons
         if rowKey == "Cost" {
+            
             cell.userInteractionEnabled = true
-            button1.setTitle("USD", forState: .Normal)
-            button2.setTitle("Credits", forState: .Normal)
-            button1.hidden = false
-            button2.hidden = false
+            cell.button1.setTitle("USD", forState: .Normal)
+            cell.button2.setTitle("Credits", forState: .Normal)
+            cell.button1.hidden = false
+            cell.button2.hidden = false
             textField.hidden = false
             currencyLabel.hidden = false
             
         } else if rowKey == "Height" || rowKey == "Length" {
             cell.userInteractionEnabled = true
-            button1.setTitle("English", forState: .Normal)
-            button2.setTitle("Metric", forState: .Normal)
-            button1.hidden = false
-            button2.hidden = false
+            cell.button1.setTitle("English", forState: .Normal)
+            cell.button2.setTitle("Metric", forState: .Normal)
+            cell.button1.hidden = false
+            cell.button2.hidden = false
         }
         
         // Check value and then assign it
         if let value = rowValue {
-            valueLabel.text = value
+            cell.valueLabel.text = value
         } else {
-            valueLabel.text = "Something did not work"
+            cell.valueLabel.text = "Something did not work"
         }
         
         return cell
@@ -220,7 +204,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - Segues
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-        if let controller = viewController as? ViewController {
+        if let controller = viewController as? HomeViewController {
             controller.charactersButton.enabled = true
             controller.vehiclesButton.enabled = true
             controller.starshipsButton.enabled = true

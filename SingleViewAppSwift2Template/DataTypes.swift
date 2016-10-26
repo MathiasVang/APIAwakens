@@ -35,7 +35,7 @@ final class StarWarsHold: JSONDecodable {
     var count: Int?
     var next: String?
     var previous: String?
-    var result: Result?
+    var results: Result?
     var people: [StarWarsCharacter] = []
     var vehicles: [StarWarsVehicle] = []
     var starships: [StarWarsStarship] = []
@@ -65,7 +65,7 @@ final class StarWarsHold: JSONDecodable {
             return nil
         }
         
-        self.result = result
+        self.results = result
     }
 }
 
