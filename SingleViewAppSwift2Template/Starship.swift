@@ -26,7 +26,7 @@ class StarWarsStarship: DataProtocol {
             crew = result["crew"] as? String,
             length = result["length"] as? String,
             model = result["model"] as? String,
-            vehicleClass = result["vehicle_class"] as? String
+            vehicleClass = result["starship_class"] as? String
             else {
                 return nil
         }

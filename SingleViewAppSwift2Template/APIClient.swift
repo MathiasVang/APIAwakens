@@ -65,7 +65,7 @@ extension APIClient {
         }
         
         return task
-    }
+     }
     
     func fetch<T>(request: NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void) {
         
