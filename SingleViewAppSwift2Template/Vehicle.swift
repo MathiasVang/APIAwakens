@@ -16,15 +16,17 @@ class StarWarsVehicle: DataProtocol {
     var crew: String
     var length: String
     var model: String
+    var vehicleClass: String
     
     required init?(resultDecoder result: JSON) {
         guard let
             name = result["name"] as? String,
             make = result["manufacturer"] as? String,
-            cost = result["cost_credits"] as? String,
+            cost = result["cost_in_credits"] as? String,
             crew = result["crew"] as? String,
             length = result["length"] as? String,
-            model = result["model"] as? String
+            model = result["model"] as? String,
+            vehicleClass = result["vehicle_class"] as? String
             else {
                 return nil
         }
@@ -35,5 +37,6 @@ class StarWarsVehicle: DataProtocol {
         self.crew = crew
         self.length = length
         self.model = model
+        self.vehicleClass = vehicleClass
     }
 }

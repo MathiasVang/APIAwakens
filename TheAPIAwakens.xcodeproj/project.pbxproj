@@ -11,6 +11,7 @@
 		1F6561261DB4C9A100DC8F44 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6561251DB4C9A100DC8F44 /* APIClient.swift */; };
 		1F65612A1DB4CD1500DC8F44 /* StarWarsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6561291DB4CD1500DC8F44 /* StarWarsClient.swift */; };
 		1F65612C1DB5333100DC8F44 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65612B1DB5333100DC8F44 /* DetailViewController.swift */; };
+		1F8B1D0C1DCCC8B100357807 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B1D0B1DCCC8B100357807 /* Planet.swift */; };
 		1F94209A1DC0B8DB00F7C95F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9420991DC0B8DB00F7C95F /* HomeViewController.swift */; };
 		1F9EDA7F1DB76B0000C0730A /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA7E1DB76B0000C0730A /* DataTypes.swift */; };
 		1F9EDA881DB7BC3700C0730A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9EDA871DB7BC3700C0730A /* Character.swift */; };
@@ -22,6 +23,7 @@
 		8DC3C5B51D901AB50012AFF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC3C5B31D901AB50012AFF7 /* Main.storyboard */; };
 		8DC3C5B71D901AB50012AFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DC3C5B61D901AB50012AFF7 /* Assets.xcassets */; };
 		8DC3C5BA1D901AB50012AFF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC3C5B81D901AB50012AFF7 /* LaunchScreen.storyboard */; };
+		D6A1A6BB1DC2479C00BA1ED1 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A6BA1DC2479C00BA1ED1 /* HelperMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,7 @@
 		1F6561251DB4C9A100DC8F44 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1F6561291DB4CD1500DC8F44 /* StarWarsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsClient.swift; sourceTree = "<group>"; };
 		1F65612B1DB5333100DC8F44 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1F8B1D0B1DCCC8B100357807 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		1F9420991DC0B8DB00F7C95F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F9EDA7E1DB76B0000C0730A /* DataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 		1F9EDA871DB7BC3700C0730A /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		8DC3C5BB1D901AB50012AFF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC3C5C01D901AB60012AFF7 /* TheAPIAwakensTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheAPIAwakensTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC3C5CB1D901AB60012AFF7 /* TheAPIAwakensUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheAPIAwakensUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A1A6BA1DC2479C00BA1ED1 /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +108,10 @@
 				1F9EDA871DB7BC3700C0730A /* Character.swift */,
 				1F9EDA891DB7BCDB00C0730A /* Vehicle.swift */,
 				1F9EDA8B1DB7BD3F00C0730A /* Starship.swift */,
+				1F8B1D0B1DCCC8B100357807 /* Planet.swift */,
 				1F9EDA8D1DB7C1AD00C0730A /* ErrorTypes.swift */,
 				1F9EDA8F1DB7C59900C0730A /* Reachability.swift */,
+				D6A1A6BA1DC2479C00BA1ED1 /* HelperMethods.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			files = (
 				1F9EDA881DB7BC3700C0730A /* Character.swift in Sources */,
 				1F9EDA8C1DB7BD3F00C0730A /* Starship.swift in Sources */,
+				D6A1A6BB1DC2479C00BA1ED1 /* HelperMethods.swift in Sources */,
 				1F65612A1DB4CD1500DC8F44 /* StarWarsClient.swift in Sources */,
 				1F65612C1DB5333100DC8F44 /* DetailViewController.swift in Sources */,
 				1F9EDA7F1DB76B0000C0730A /* DataTypes.swift in Sources */,
@@ -388,6 +395,7 @@
 				1F9EDA8A1DB7BCDB00C0730A /* Vehicle.swift in Sources */,
 				1F3060181DC08E9B00F53468 /* ObjectCell.swift in Sources */,
 				1F9EDA8E1DB7C1AD00C0730A /* ErrorTypes.swift in Sources */,
+				1F8B1D0C1DCCC8B100357807 /* Planet.swift in Sources */,
 				1F94209A1DC0B8DB00F7C95F /* HomeViewController.swift in Sources */,
 				1F9EDA901DB7C59900C0730A /* Reachability.swift in Sources */,
 			);

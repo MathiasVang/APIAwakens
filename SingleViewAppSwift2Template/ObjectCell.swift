@@ -16,9 +16,17 @@ class ObjectCell: UITableViewCell {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     
+    var buttonTap: ((tag: Int, UITableViewCell) throws -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        button1.enabled = true
+        button2.enabled = true
+        
+        button1.tag = 1
+        button2.tag = 2
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -26,5 +34,10 @@ class ObjectCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func tapAction(sender: AnyObject) {
+        try! buttonTap?(tag: (sender as! UIButton).tag, self)
+    }
+    
 
 }

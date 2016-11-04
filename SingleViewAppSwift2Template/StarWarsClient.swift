@@ -12,6 +12,7 @@ enum StarWars: Int, Endpoint {
     case People = 1
     case Vehicles = 2
     case Starships = 3
+    case Planets = 4
     
     var baseURL: NSURL {
         return NSURL(string: "http://swapi.co/api/")!
@@ -25,6 +26,8 @@ enum StarWars: Int, Endpoint {
             return "vehicles/"
         case .Starships:
             return "starships/"
+        case .Planets:
+            return "planets/"
         }
     }
     
@@ -58,8 +61,11 @@ final class StarwarsAPIClient: APIClient {
                 request = StarWars.People.request
             case .Vehicles:
                 request = StarWars.Vehicles.request
+                print(request)
             case .Starships:
                 request = StarWars.Starships.request
+            case .Planets:
+                request = StarWars.Planets.request
             }
         } else if customURL != nil {
             request = customURL!
@@ -79,14 +85,28 @@ final class StarwarsAPIClient: APIClient {
                     case .People:
                         if let character = StarWarsCharacter(resultDecoder: result[i]) {
                             holder.people.append(character)
+                            let url = NSURLRequest(URL: NSURL(string: holder.people[i].home)!)
+                            self.fetchSingleData(url, forType: StarWars.Planets) { result in
+                                switch result {
+                                case .Success(let successData):
+                                    holder.people[i].home = (successData as! StarWarsPlanet).name
+                                default:
+                                    break
+                                }
+                            }
                         }
                     case .Vehicles:
+                        
                         if let vehicle = StarWarsVehicle(resultDecoder: result[i]) {
                             holder.vehicles.append(vehicle)
                         }
                     case .Starships:
                         if let starship = StarWarsStarship(resultDecoder: result[i]) {
                             holder.starships.append(starship)
+                        }
+                    case .Planets:
+                        if let planet = StarWarsPlanet(resultDecoder: result[i]) {
+                            holder.planets.append(planet)
                         }
                     }
                 }
@@ -110,6 +130,8 @@ final class StarwarsAPIClient: APIClient {
                 holder = StarWarsVehicle(resultDecoder: json)
             case .Starships:
                 holder = StarWarsStarship(resultDecoder: json)
+            case .Planets:
+                holder = StarWarsPlanet(resultDecoder: json)
             }
             
             return holder

@@ -13,8 +13,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var charactersButton: UIButton!
     @IBOutlet weak var vehiclesButton: UIButton!
     @IBOutlet weak var starshipsButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+    //var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
     lazy var swapiClient = StarwarsAPIClient()
     
     var holderData: StarWarsHold?
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        design()
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +83,7 @@ class HomeViewController: UIViewController {
         }
         
         if sender as! UIButton == starshipsButton {
-            if holderData == nil && starshipsButton == false {
+            if holderData == nil && starshipClicked == false {
                 activityIndicator.startAnimating()
                 starshipClicked = true
                 fetchData(StarWars.Starships, customUrl: nil)
@@ -99,40 +101,6 @@ class HomeViewController: UIViewController {
                 
                 if Reachability.isConnectedToNetwork() == true {
                     let controller = segue.destinationViewController as! DetailViewController
-                    
-//                    if characterClicked == false {
-//                        holderData = nil
-//                    } else if vehicleClicked == false {
-//                        holderData = nil
-//                    } else if starshipClicked == false {
-//                        holderData = nil
-//                    }
-//                    
-//                    if sender as! UIButton == charactersButton {
-//                        if holderData == nil && characterClicked == false {
-//                            activityIndicator.startAnimating()
-//                            characterClicked = true
-//                            fetchData(StarWars.People, customUrl: nil)
-//                        } else {
-//                            performSegueWithIdentifier("showDetail", sender: sender)
-//                        }
-//                    } else if sender as! UIButton == vehiclesButton {
-//                        if holderData == nil && vehicleClicked == false {
-//                            activityIndicator.startAnimating()
-//                            vehicleClicked = true
-//                            fetchData(StarWars.Vehicles, customUrl: nil)
-//                        } else {
-//                            performSegueWithIdentifier("showDetail", sender: sender)
-//                        }
-//                    } else if sender as! UIButton == starshipsButton {
-//                        if holderData == nil && starshipClicked == false {
-//                            activityIndicator.startAnimating()
-//                            starshipClicked = true
-//                            fetchData(StarWars.Starships, customUrl: nil)
-//                        } else {
-//                            performSegueWithIdentifier("showDetail", sender: sender)
-//                        }
-//                    }
                     
                     // Check where the segue call comes from.
                     // If the data has not been fetched, the fetch closure will call the segue and send a int value to tell what button was clicked
@@ -199,7 +167,11 @@ class HomeViewController: UIViewController {
                     strongSelf.downloadedStarshipData += successData.starships
                     print("Starship Count: \(strongSelf.downloadedStarshipData.count)")
                     strongSelf.starshipDataCount = strongSelf.holderData!.count!
+                    
+                case .Planets:
+                    strongSelf.holderData = successData
                 }
+                
                 
             case .Failure(let error as NSError):
                 strongSelf.showAlert("Unable to retrieve data", message: error.localizedDescription)
@@ -221,6 +193,18 @@ class HomeViewController: UIViewController {
         let dismissAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(dismissAction)
         presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func design() {
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 106.0/255.0, green: 195.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
 }
 

@@ -25,10 +25,15 @@ protocol JSONDecodable {
     init?(JSON: JSON)
 }
 
+protocol ButtonCellDelegate {
+    func cellTapped(cell: ObjectCell)
+}
+
 enum StarWarsType: ObjectType {
     case character
     case vehicle
     case starship
+    case planet
 }
 
 final class StarWarsHold: JSONDecodable {
@@ -39,6 +44,7 @@ final class StarWarsHold: JSONDecodable {
     var people: [StarWarsCharacter] = []
     var vehicles: [StarWarsVehicle] = []
     var starships: [StarWarsStarship] = []
+    var planets: [StarWarsPlanet] = []
     
     init?(JSON: [String : AnyObject]) {
         

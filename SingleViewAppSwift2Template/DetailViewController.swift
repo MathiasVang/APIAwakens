@@ -18,6 +18,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var smallestLabel: UILabel!
     @IBOutlet weak var largestLabel: UILabel!
+    @IBOutlet weak var footerView: UIView!
     
     lazy var swapiClient = StarwarsAPIClient()
     var objects: [AnyObject]?
@@ -61,13 +62,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                     case .character:
                         let person = unwrapObjects[i] as! StarWarsCharacter
                         tempDict["Born"] = person.yearOfBirth
+                        tempDict["Home"] = person.home
                         tempDict["Height"] = person.height
                         if let u = Int(person.height) {
                             populateQuickFacts(u, count: i)
                         }
                         tempDict["Eyes"] = person.eyes
                         tempDict["Hair"] = person.hair
-                        tempDict["More"] = ""
                     case .vehicle:
                         let vehicle = unwrapObjects[i] as! StarWarsVehicle
                         tempDict["Make"] = vehicle.make
@@ -77,6 +78,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                             populateQuickFacts(u, count: i)
                         }
                         tempDict["Crew"] = vehicle.crew
+                        tempDict["Class"] = vehicle.vehicleClass
                     case .starship:
                         let starship = unwrapObjects[i] as! StarWarsStarship
                         tempDict["Make"] = starship.make
@@ -86,6 +88,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                             populateQuickFacts(u, count: i)
                         }
                         tempDict["Crew"] = starship.crew
+                        tempDict["Class"] = starship.vehicleClass
+                    case .planet:
+                        noDataAlert()
                     }
                     descrArr.append(tempDict)
                 }
@@ -97,6 +102,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         setupView()
+        setupTextField()
+        designScreen()
         
         // Setup delegates
         tableView.delegate = self
@@ -107,7 +114,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.separatorColor = UIColor(red: 106/255.0, green: 196/255.0, blue: 255/255.0, alpha: 1)
         tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10)
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor(red: 27/255.0, green: 32/255.0, blue: 36/255.0, alpha: 1.0)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
@@ -158,6 +165,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         cell.button1.hidden = true
         cell.button2.hidden = true
         
+        cell.contentView.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
         // Get the keys from the dictionary and list them as the category
         let rowKey = typeListKeys[indexPath.row]
         cell.descLabel.text = rowKey
@@ -175,6 +186,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             cell.button2.hidden = false
             textField.hidden = false
             currencyLabel.hidden = false
+            cell.buttonTap = { (tag, cell) in
+                do {
+                    try self.convertCurrency(tag)
+                } catch Errors.InvalidInt {
+                    self.showAlert("That is not a number", message: "You must type a number")
+                } catch Errors.ZeroInput {
+                    self.showAlert("You can't type zero or a negative number", message: "You must type a positive number")
+                }
+            }
             
         } else if rowKey == "Height" || rowKey == "Length" {
             cell.userInteractionEnabled = true
@@ -182,6 +202,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             cell.button2.setTitle("Metric", forState: .Normal)
             cell.button1.hidden = false
             cell.button2.hidden = false
+            cell.buttonTap = { (tag, cell) in
+                self.convertMetrics(tag)
+            }
         }
         
         // Check value and then assign it
@@ -286,6 +309,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         textField.textColor = color
         textField.backgroundColor = UIColor.clearColor()
         textField.attributedPlaceholder = NSAttributedString(string:"100", attributes: [NSForegroundColorAttributeName: color])
+        footerView.layer.addBorder(.Top, color: UIColor(red: 106/255.0, green: 196/255.0, blue: 255/255.0, alpha: 1), thickness: 1)
     }
     
     func populateQuickFacts(size: Int, count: Int) {
